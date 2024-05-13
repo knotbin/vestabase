@@ -10,52 +10,60 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @State var boardText = ""
+    @State var apiKey = ""
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        VStack {
+            TextField("Enter Vestaboard Read/Write API Key", text: $apiKey)
+                .textFieldStyle(.roundedBorder)
+            TextField("Enter Text for Vestaboard", text: $boardText)
+                .textFieldStyle(.roundedBorder)
+            Button {
+                postMessage(withText: boardText, usingApiKey: apiKey)
+                boardText = ""
+            } label: {
+                Text("Send")
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
         }
+        .padding(50)
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+    func postMessage(withText text: String, usingApiKey apiKey: String) {
+        let url = URL(string: "https://rw.vestaboard.com/")!
+        
+        let parameters: [String: Any] = ["text": text]
+        guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else {
+            print("Error: Unable to serialize JSON")
+            return
         }
-    }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        // Create a URLRequest object
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue(apiKey, forHTTPHeaderField: "X-Vestaboard-Read-Write-Key")
+        request.httpBody = jsonData
+
+        // Create and configure a URLSession data task
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "No error description available.")")
+                return
+            }
+
+            // Handle the data and response status code here
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                print("Data was sent successfully")
+            } else {
+                print("Failed to send data")
             }
         }
+
+        // Execute the task
+        task.resume()
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
