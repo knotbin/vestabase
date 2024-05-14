@@ -16,7 +16,6 @@ struct SendView: View {
     var body: some View {
         Form {
             TextField("Enter Text for Vestaboard", text: $boardText)
-                .textFieldStyle(.roundedBorder)
             Button {
                 guard let apiKey = keys.first else {
                     print("No API key")
