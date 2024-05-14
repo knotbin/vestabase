@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		596E95962BF2DE6A00B6F694 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E95952BF2DE6A00B6F694 /* APIKey.swift */; };
+		596E95982BF2F82800B6F694 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E95972BF2F82800B6F694 /* MessageSender.swift */; };
 		59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245562BF1405000E308B9 /* VestabaseApp.swift */; };
 		59A245592BF1405000E308B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245582BF1405000E308B9 /* ContentView.swift */; };
 		59A2455D2BF1405200E308B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A2455C2BF1405200E308B9 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		596E95952BF2DE6A00B6F694 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		596E95972BF2F82800B6F694 /* MessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
 		59A245532BF1405000E308B9 /* Vestabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vestabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A245562BF1405000E308B9 /* VestabaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestabaseApp.swift; sourceTree = "<group>"; };
 		59A245582BF1405000E308B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +75,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		596E95992BF2F85700B6F694 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				59A245582BF1405000E308B9 /* ContentView.swift */,
+				596E95972BF2F82800B6F694 /* MessageSender.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		596E959A2BF2F86700B6F694 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				596E95952BF2DE6A00B6F694 /* APIKey.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		59A2454A2BF1405000E308B9 = {
 			isa = PBXGroup;
 			children = (
@@ -94,8 +115,9 @@
 		59A245552BF1405000E308B9 /* Vestabase */ = {
 			isa = PBXGroup;
 			children = (
+				596E959A2BF2F86700B6F694 /* Models */,
+				596E95992BF2F85700B6F694 /* Views */,
 				59A245562BF1405000E308B9 /* VestabaseApp.swift */,
-				59A245582BF1405000E308B9 /* ContentView.swift */,
 				59A2455C2BF1405200E308B9 /* Assets.xcassets */,
 				59A2455E2BF1405200E308B9 /* Preview Content */,
 			);
@@ -257,7 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596E95982BF2F82800B6F694 /* MessageSender.swift in Sources */,
 				59A245592BF1405000E308B9 /* ContentView.swift in Sources */,
+				596E95962BF2DE6A00B6F694 /* APIKey.swift in Sources */,
 				59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

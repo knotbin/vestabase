@@ -1,25 +1,27 @@
 //
-//  ContentView.swift
+//  MessageSender.swift
 //  Vestabase
 //
-//  Created by Roscoe Rubin-Rottenberg on 5/12/24.
+//  Created by Roscoe Rubin-Rottenberg on 5/13/24.
 //
 
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct MessageSender: View {
     @Environment(\.modelContext) private var modelContext
+    @Query private var keys: [APIKey]
     @State var boardText = ""
-    @State var apiKey = ""
 
     var body: some View {
         VStack {
-            TextField("Enter Vestaboard Read/Write API Key", text: $apiKey)
-                .textFieldStyle(.roundedBorder)
             TextField("Enter Text for Vestaboard", text: $boardText)
                 .textFieldStyle(.roundedBorder)
             Button {
+                guard let apiKey = keys.first?.key else {
+                    print("No API key")
+                    return
+                }
                 postMessage(withText: boardText, usingApiKey: apiKey)
                 boardText = ""
             } label: {
@@ -46,7 +48,7 @@ struct ContentView: View {
 
         // Create and configure a URLSession data task
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
+            guard error == nil else {
                 print("Error: \(error?.localizedDescription ?? "No error description available.")")
                 return
             }
@@ -65,5 +67,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MessageSender()
 }

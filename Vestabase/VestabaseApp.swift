@@ -12,7 +12,7 @@ import SwiftData
 struct VestabaseApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            
+            APIKey.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
