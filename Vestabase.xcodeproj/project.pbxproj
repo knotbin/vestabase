@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		596E95962BF2DE6A00B6F694 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E95952BF2DE6A00B6F694 /* APIKey.swift */; };
-		596E95982BF2F82800B6F694 /* MessageSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E95972BF2F82800B6F694 /* MessageSender.swift */; };
+		596E959C2BF2FED200B6F694 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E959B2BF2FED200B6F694 /* SendView.swift */; };
+		596E959E2BF2FF1300B6F694 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E959D2BF2FF1300B6F694 /* SettingsView.swift */; };
+		596E95A02BF3023700B6F694 /* NewKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596E959F2BF3023700B6F694 /* NewKeyView.swift */; };
 		59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245562BF1405000E308B9 /* VestabaseApp.swift */; };
 		59A245592BF1405000E308B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245582BF1405000E308B9 /* ContentView.swift */; };
 		59A2455D2BF1405200E308B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A2455C2BF1405200E308B9 /* Assets.xcassets */; };
@@ -37,7 +39,9 @@
 
 /* Begin PBXFileReference section */
 		596E95952BF2DE6A00B6F694 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
-		596E95972BF2F82800B6F694 /* MessageSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSender.swift; sourceTree = "<group>"; };
+		596E959B2BF2FED200B6F694 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
+		596E959D2BF2FF1300B6F694 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		596E959F2BF3023700B6F694 /* NewKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKeyView.swift; sourceTree = "<group>"; };
 		59A245532BF1405000E308B9 /* Vestabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vestabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A245562BF1405000E308B9 /* VestabaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestabaseApp.swift; sourceTree = "<group>"; };
 		59A245582BF1405000E308B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,7 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				59A245582BF1405000E308B9 /* ContentView.swift */,
-				596E95972BF2F82800B6F694 /* MessageSender.swift */,
+				596E959B2BF2FED200B6F694 /* SendView.swift */,
+				596E959D2BF2FF1300B6F694 /* SettingsView.swift */,
+				596E959F2BF3023700B6F694 /* NewKeyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,10 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596E95982BF2F82800B6F694 /* MessageSender.swift in Sources */,
+				596E959E2BF2FF1300B6F694 /* SettingsView.swift in Sources */,
 				59A245592BF1405000E308B9 /* ContentView.swift in Sources */,
 				596E95962BF2DE6A00B6F694 /* APIKey.swift in Sources */,
+				596E959C2BF2FED200B6F694 /* SendView.swift in Sources */,
 				59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */,
+				596E95A02BF3023700B6F694 /* NewKeyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

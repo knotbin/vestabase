@@ -12,9 +12,13 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            MessageSender()
+            SendView()
                 .tabItem {
                     Label("Send", systemImage: "message.fill")
+                }
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
                 }
         }
     }
