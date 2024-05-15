@@ -11,22 +11,42 @@ import SwiftData
 struct SendView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var keys: [APIKey]
-    @State var boardText = ""
+    
+    @StateObject var viewModel = SendViewModel()
 
     var body: some View {
-        Form {
-            TextField("Enter Text for Vestaboard", text: $boardText)
-            Button {
-                guard let apiKey = keys.first else {
-                    print("No API key")
-                    return
+        NavigationStack {
+            Form {
+                Section(header: Text("Message Info")) {
+                    TextField("Enter Text for Vestaboard", text: $viewModel.boardText)
+                    Picker("API Key", selection: $viewModel.currentKey) {
+                        ForEach(keys) { key in
+                            Text(key.name).tag(key as APIKey?)
+                        }
+                        if keys.first == nil {
+                            Text("None")
+                        }
+                    }
                 }
-                postMessage(withText: boardText, usingApiKey: apiKey.key)
-                print(apiKey.key)
-                boardText = ""
-            } label: {
-                Text("Send")
+                
+                Button {
+                    guard let selectedKey = viewModel.currentKey else {
+                        viewModel.showAlert = true
+                        return
+                    }
+                    postMessage(withText: viewModel.boardText, usingApiKey: selectedKey.key)
+                    viewModel.boardText = ""
+                } label: {
+                    Text("Send")
+                }
             }
+            .navigationTitle("Send")
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+            Alert(
+                title: Text("No API Key Added"),
+                message: Text("Please add your API Key(s) in the Settings menu")
+            )
         }
     }
     func postMessage(withText text: String, usingApiKey apiKey: String) {
