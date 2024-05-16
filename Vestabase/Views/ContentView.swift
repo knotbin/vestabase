@@ -12,9 +12,9 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            SendView()
+            BoardView()
                 .tabItem {
-                    Label("Send", systemImage: "message.fill")
+                    Label("Board", systemImage: "clipboard") 
                 }
             SettingsView()
                 .tabItem {

@@ -15,7 +15,7 @@
 		59766F032BF51F6F00ABFECF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59766F022BF51F6E00ABFECF /* PreviewView.swift */; };
 		59766F052BF51F8B00ABFECF /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59766F042BF51F8B00ABFECF /* PreviewViewModel.swift */; };
 		59766F072BF57DA500ABFECF /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59766F062BF57DA500ABFECF /* BoardView.swift */; };
-		59766F092BF57DB900ABFECF /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59766F082BF57DB900ABFECF /* BoardViewModel.swift */; };
+		59766F0B2BF57E4500ABFECF /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59766F0A2BF57E4500ABFECF /* BoardViewModel.swift */; };
 		59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245562BF1405000E308B9 /* VestabaseApp.swift */; };
 		59A245592BF1405000E308B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A245582BF1405000E308B9 /* ContentView.swift */; };
 		59A2455D2BF1405200E308B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A2455C2BF1405200E308B9 /* Assets.xcassets */; };
@@ -51,7 +51,7 @@
 		59766F022BF51F6E00ABFECF /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		59766F042BF51F8B00ABFECF /* PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewModel.swift; sourceTree = "<group>"; };
 		59766F062BF57DA500ABFECF /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		59766F082BF57DB900ABFECF /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		59766F0A2BF57E4500ABFECF /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		59A245532BF1405000E308B9 /* Vestabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vestabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A245562BF1405000E308B9 /* VestabaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VestabaseApp.swift; sourceTree = "<group>"; };
 		59A245582BF1405000E308B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			children = (
 				596E95A32BF445C000B6F694 /* SendViewModel.swift */,
 				59766F042BF51F8B00ABFECF /* PreviewViewModel.swift */,
-				59766F082BF57DB900ABFECF /* BoardViewModel.swift */,
+				59766F0A2BF57E4500ABFECF /* BoardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 				59A245572BF1405000E308B9 /* VestabaseApp.swift in Sources */,
 				59766F052BF51F8B00ABFECF /* PreviewViewModel.swift in Sources */,
 				59766F072BF57DA500ABFECF /* BoardView.swift in Sources */,
-				59766F092BF57DB900ABFECF /* BoardViewModel.swift in Sources */,
+				59766F0B2BF57E4500ABFECF /* BoardViewModel.swift in Sources */,
 				596E95A02BF3023700B6F694 /* NewKeyView.swift in Sources */,
 				596E95A42BF445C000B6F694 /* SendViewModel.swift in Sources */,
 			);

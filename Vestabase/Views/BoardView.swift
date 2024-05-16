@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct BoardView: View {
+    @Query var keys: [APIKey]
+    @StateObject var viewModel = BoardViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            SendView(currentKey: $viewModel.currentKey)
+            PreviewView(currentKey: viewModel.currentKey)
+        }
+        .onAppear() {
+            viewModel.currentKey = keys.first
+        }
     }
 }
 

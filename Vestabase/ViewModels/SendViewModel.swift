@@ -11,7 +11,6 @@ import SwiftData
 class SendViewModel: ObservableObject {
     @Published var boardText = ""
     @Published var showAlert = false
-    @Published var currentKey: APIKey? = nil
     
     public func postMessage(withText text: String, usingApiKey apiKey: String) {
         let url = URL(string: "https://rw.vestaboard.com/")!
@@ -51,5 +50,6 @@ class SendViewModel: ObservableObject {
 
         task.resume()
     }
+    
     init() {}
 }

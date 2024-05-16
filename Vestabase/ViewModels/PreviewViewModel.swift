@@ -10,6 +10,7 @@ import SwiftUI
 
 class PreviewViewModel: ObservableObject {
     @Published var code: [Int]? = nil
+    @Published var firstLoad = true
     public let layout = Array(repeating: GridItem(.adaptive(minimum:50)), count: 22)
     
     let codemap = [
@@ -38,11 +39,16 @@ class PreviewViewModel: ObservableObject {
         let id = UUID()
     }
     
-    public func getMessage(apiKey: APIKey) async -> [Int]? {
+    public func getMessage(key: APIKey?) async {
+        guard let apiKey = key else {
+            print("No API key")
+            return
+        }
+        
         let endpoint = "https://rw.vestaboard.com/"
         guard let url = URL(string: endpoint) else {
             print("Invalid URL")
-            return nil
+            return
         }
         
         var request = URLRequest(url: url)
@@ -67,7 +73,7 @@ class PreviewViewModel: ObservableObject {
                    let layoutData = layoutString.data(using: .utf8),
                    let layoutArray = try JSONSerialization.jsonObject(with: layoutData, options: []) as? [[Int]] {
                     let flatArray = layoutArray.flatMap { $0 }
-                    return flatArray
+                    code = flatArray
                 } else {
                     throw NSError(domain: "Invalid JSON structure", code: 3, userInfo: nil)
                 }
@@ -76,7 +82,7 @@ class PreviewViewModel: ObservableObject {
             }
         } catch {
             print("Error in fetching data")
-            return nil
+            return 
         }
     }
     

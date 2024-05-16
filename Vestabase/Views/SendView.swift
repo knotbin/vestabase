@@ -13,24 +13,23 @@ struct SendView: View {
     @Query private var keys: [APIKey]
     
     @StateObject var viewModel = SendViewModel()
+    @Binding var currentKey: APIKey?
 
     var body: some View {
         NavigationStack {
+            
             Form {
-                Section(header: Text("Message Info")) {
-                    TextField("Enter Text for Vestaboard", text: $viewModel.boardText)
-                    Picker("API Key", selection: $viewModel.currentKey) {
-                        ForEach(keys) { key in
-                            Text(key.name).tag(key as APIKey?)
-                        }
-                        if keys.first == nil {
-                            Text("None")
-                        }
+                Picker("API Key", selection: $currentKey) {
+                    ForEach(keys) { key in
+                        Text(key.name).tag(key as APIKey?)
+                    }
+                    if keys.first == nil {
+                        Text("None")
                     }
                 }
-                
+                TextField("Enter Text for Vestaboard", text: $viewModel.boardText)
                 Button {
-                    guard let selectedKey = viewModel.currentKey else {
+                    guard let selectedKey = currentKey else {
                         viewModel.showAlert = true
                         return
                     }
@@ -51,5 +50,5 @@ struct SendView: View {
 }
 
 #Preview {
-    SendView()
+    SendView(currentKey: .constant(nil))
 }
