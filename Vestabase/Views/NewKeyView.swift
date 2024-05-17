@@ -14,15 +14,25 @@ struct NewKeyView: View {
     @State var key = ""
     @Binding var shown: Bool
     var body: some View {
-        Form {
-            TextField("Name", text: $name)
-            TextField("Read/Write API Key", text: $key)
-            Button {
-                AddKey(name: name, key: key)
-                shown = false
-            } label: {
-                Text("Add Key")
+        NavigationStack {
+            Form {
+                TextField("Name", text: $name)
+                TextField("Read/Write API Key", text: $key)
+                Button {
+                    AddKey(name: name, key: key)
+                    shown = false
+                } label: {
+                    Text("Add Key")
+                }
             }
+            .toolbar {
+                Button {
+                    shown = false
+                } label: {
+                    Image(systemName: "xmark.circle")
+                }
+            }
+            .navigationTitle("New API Key")
         }
     }
     func AddKey(name: String, key: String) {
