@@ -14,11 +14,11 @@ struct ContentView: View {
         TabView {
             BoardView()
                 .tabItem {
-                    Label("Board", systemImage: "clipboard") 
+                    Label("Board", systemImage: "clipboard")
                 }
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gear")
+                    Label("Settings", systemImage: "gearshape")
                 }
         }
     }
