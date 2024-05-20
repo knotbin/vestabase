@@ -39,11 +39,13 @@ struct PreviewView: View {
                     ContentUnavailableView("No API Key Selected", systemImage: "key.slash.fill", description: Text("Please select an API key or add one in settings to view a preview of your Vestaboard"))
                 }
             }
-            Button("Reload Preview", action: {
+            Button {
                 Task {
                     await viewModel.getMessage(key: currentKey)
                 }
-            })
+            } label: {
+                Image(systemName: "arrow.clockwise")
+            }
         }
         .onAppear(perform: {
             Task {
